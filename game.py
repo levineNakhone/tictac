@@ -1,3 +1,6 @@
+from lib2to3.pytree import LeafPattern
+
+
 class TicTacToe:
     def __init__(self):
         self.board = [' ' for _ in range(9)]#use a single list to rep 3*3 board
@@ -22,7 +25,14 @@ class TicTacToe:
         def num_empty_squares(self):
             return self.board,count(' ')
 
-       # moves = []
+        def make_move(self, square, letter):
+            #if valid move, then make the move (assign square to letter)
+            #then return true
+            if self.board[square] == ' ':
+                self.board[square] == letter 
+                return True
+            return False
+       # moves = [
    # for (i, spot) in enumarate(self.board):
         #['x', 'x', '0'] -> [(0, 'x')(1, 'x'), (2, '0')]
 def play(game, x_player, o_player, print_game=True):
@@ -36,3 +46,13 @@ def play(game, x_player, o_player, print_game=True):
                 square = o_player.get_move(game)
             else:
                 square = x_player.get_move(game)
+
+        #lets define function to make a move
+        if game.make_move(square,letter):
+            if print_game:
+                print(letter + f' makes a move to square {square}')
+                game.print_board()
+                print('')#an empty line
+
+                letter = 'o' if letter == 'x' else 'x'
+               
