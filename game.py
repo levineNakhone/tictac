@@ -32,6 +32,15 @@ class TicTacToe:
                 self.board[square] == letter 
                 return True
             return False
+
+        def winner(self, square, letter):
+            row_ind = square // 3 #checking row
+            row = self.board[row_ind*3 : (row_ind + 1) * 3]
+            if all([spot == letter for spot in row]):
+                return True
+
+                #checking column
+                
        # moves = [
    # for (i, spot) in enumarate(self.board):
         #['x', 'x', '0'] -> [(0, 'x')(1, 'x'), (2, '0')]
